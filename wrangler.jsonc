@@ -1,0 +1,26 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "game81",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-08-15",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"vars": {
+		"NEXT_PUBLIC_SITE_URL": "https://gameviet.io.vn",
+		"NEXT_PUBLIC_GOOGLE_ANALYTICS_ID": "G-T2PRM8RDHL"
+	},
+	"d1_databases": [
+		{
+			"binding": "game81_db",
+			"database_name": "game81-db",
+			"database_id": "0266a0cf-266d-43c8-a4e4-32971741f993",
+			"remote": true
+		}
+	]
+}

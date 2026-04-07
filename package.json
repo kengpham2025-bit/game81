@@ -1,0 +1,41 @@
+{
+  "name": "gameviet",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:cloudflare": "npx opennextjs-cloudflare build",
+    "build:cf": "npx opennextjs-cloudflare build",
+    "deploy:cf": "OPEN_NEXT_DEPLOY=true npx wrangler deploy",
+    "start": "next start -p 80",
+    "lint": "eslint",
+    "deploy": "npx opennextjs-cloudflare build && npx wrangler deploy --no-bundle --env production",
+    "preview": "npx opennextjs-cloudflare build && npx wrangler dev"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "bcryptjs": "^3.0.3",
+    "cheerio": "^1.2.0",
+    "next": "16.1.7",
+    "nodemailer": "^7.0.13",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "slugify": "^1.6.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260317.1",
+    "@opennextjs/cloudflare": "^1.17.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.7",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.75.0"
+  }
+}

@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --accent: #e11d48;
+  --accent-hover: #be123c;
+  --muted: #737373;
+  --border: #262626;
+  /* Chuẩn GAME8-style */
+  --g8-red: #e62117;
+  --g8-bg-card: #141414;
+  --g8-border: #252525;
+  --g8-text-body: #cccccc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Cỡ chữ cơ sở lớn hơn — đọc tin game / admin rõ ràng */
+html {
+  font-size: 17px;
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-optical-sizing: auto;
+  line-height: 1.65;
+}
+
+/* Menu / logo / nhãn CAPS — Roboto Condensed (game8-style) */
+.font-nav {
+  font-family: var(--font-nav), "Arial Narrow", "Helvetica Condensed", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "kern" 1;
+}
+
+a:hover {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+/* Tiêu đề: không bó hẹp chữ (dễ lệch dấu tiếng Việt) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+/* Prose styles for article content */
+.prose h2 { font-size: 1.75rem; margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 700; }
+.prose h3 { font-size: 1.45rem; margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 600; }
+.prose h4 { font-size: 1.25rem; margin-top: 1em; margin-bottom: 0.5em; }
+.prose p { margin-bottom: 1em; line-height: 1.8; font-size: 1.1rem; }
+.prose img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1em 0; }
+.prose ul, .prose ol { margin: 1em 0; padding-left: 1.5em; }
+.prose li { margin-bottom: 0.5em; }
+.prose a { color: var(--accent); text-decoration: underline; }
+.prose a:hover { color: var(--accent-hover); }
+.prose blockquote { border-left: 4px solid var(--accent); padding-left: 1em; margin: 1em 0; font-style: italic; color: #9ca3af; }
+.prose pre { background: #1a1a1a; padding: 1em; border-radius: 0.5rem; overflow-x: auto; margin: 1em 0; }
+.prose code { background: #1a1a1a; padding: 0.2em 0.4em; border-radius: 0.25rem; font-size: 0.875em; }
+.prose pre code { background: transparent; padding: 0; }
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Trang bài viết — nền bokeh + font Inter */
+.game8-article-wrap {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  background-color: #0c0c0c;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(88, 28, 135, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 5%, rgba(30, 64, 175, 0.1), transparent 50%),
+    radial-gradient(ellipse 55% 35% at 0% 25%, rgba(190, 24, 24, 0.06), transparent 45%),
+    linear-gradient(180deg, #0a0a0a 0%, #0e0e0e 40%, #0a0a0a 100%);
+  background-attachment: fixed;
+}
+
+.game8-card {
+  background: var(--g8-bg-card);
+  border: 1px solid var(--g8-border);
+  border-radius: 6px;
+}
+
+.game8-prose {
+  color: var(--g8-text-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+@media (min-width: 640px) {
+  .game8-prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+}
+.game8-prose h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--g8-border);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.game8-prose h3 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+.game8-prose p {
+  margin-bottom: 1rem;
+  color: var(--g8-text-body);
+}
+.game8-prose a {
+  color: var(--g8-red);
+  font-weight: 500;
+  text-decoration: none;
+}
+.game8-prose a:hover {
+  text-decoration: underline;
+}
+.game8-prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+.game8-prose img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+  height: auto;
+}
+.game8-prose figure {
+  margin: 1.25rem auto;
+  text-align: center;
+  max-width: 100%;
+}
+.game8-prose figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.game8-prose p:has(> img:only-child),
+.game8-prose div:has(> img:only-child) {
+  text-align: center;
+}
+.game8-prose a:has(> img) {
+  display: block;
+  text-align: center;
+  margin: 1.25rem auto;
+}
+.game8-prose iframe {
+  display: block;
+  margin: 1.25rem auto;
+  max-width: 100%;
+  width: min(100%, 853px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 200px;
+  border: 0;
+  border-radius: 6px;
+}
+.game8-prose ul,
+.game8-prose ol {
+  margin: 1rem 0;
+  padding-left: 1.35rem;
+  color: var(--g8-text-body);
+}
+.game8-prose blockquote {
+  border-left: 3px solid var(--g8-red);
+  padding-left: 1rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Trang chủ — chữ to, dễ đọc */
+.home-page-type {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+@media (min-width: 1024px) {
+  .home-page-type {
+    font-size: 1.1875rem;
+    line-height: 1.7;
+  }
+}
